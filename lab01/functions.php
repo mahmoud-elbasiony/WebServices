@@ -19,7 +19,7 @@ function get_city_by_id($city){
 }
 
 function get_weather_by_city_id($city){
-    $api_url=_WEATHER_URL_."?id=".$city."&appid="._API_KEY_;
+    $api_url=_WEATHER_URL_."?id=".$city."&appid="._API_KEY_."&units=metric";
     $ch=curl_init($api_url);
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
     curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
