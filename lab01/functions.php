@@ -35,7 +35,7 @@ function print_city_weather($cw){
         echo "<h3> ".$cw["weather"][0]["description"]."</h3>";
         echo "<h3>min temp: ".$cw["main"]["temp_min"]."c</h3>";
         echo "<h3>max temp: ".$cw["main"]["temp_max"]."c</h3>";
-        echo "<img src='https://openweathermap.org/img/wn/".$cw["weather"][0]["icon"].".png'>";
+        echo "<img src='https://openweathermap.org/img/wn/".$cw["weather"][0]["icon"].".png' alt='icon'>";
         echo "<h3>Humidity: ".$cw["main"]["humidity"]."%</h3>";
         echo "<h3>Wind: ".$cw["wind"]["speed"]." km/h</h3>";
 }
