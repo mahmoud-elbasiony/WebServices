@@ -18,13 +18,20 @@ function get_city_by_id($city){
     }
 }
 
-function get_weather_by_city_id($city){
+function get_weather_by_city_id_using_curl($city){
     $api_url=_WEATHER_URL_."?id=".$city."&appid="._API_KEY_."&units=metric";
     $ch=curl_init($api_url);
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
     curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
     $response=curl_exec($ch);
     $data=json_decode($response,true);
+    return $data;
+}
+function get_weather_by_city_id_using_guzzle($city){
+    $api_url=_WEATHER_URL_."?id=".$city."&appid="._API_KEY_."&units=metric";
+    $client= new \GuzzleHttp\client();
+    $response=$client->get($api_url);
+    $data =json_decode($response->getBody(),true);
     return $data;
 }
 
